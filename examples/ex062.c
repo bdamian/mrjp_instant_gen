@@ -1,0 +1,46 @@
+#include <stdint.h>
+int main() {
+int32_t a = -44;
+int32_t b = a;
+printf("%d\n", -8);;
+printf("%d\n", a / (43 - 54));;
+printf("%d\n", 24);;
+printf("%d\n", 39);;
+int32_t c = a;
+printf("%d\n", 78);;
+int32_t d = a;
+int32_t e = b / ((6 - 96) / c);
+int32_t f = 116 + -12;
+printf("%d\n", b);;
+printf("%d\n", d);;
+printf("%d\n", 54);;
+printf("%d\n", b);;
+int32_t g = a;
+printf("%d\n", -17);;
+printf("%d\n", 14);;
+printf("%d\n", 76);;
+printf("%d\n", f);;
+printf("%d\n", c);;
+printf("%d\n", 26 - e);;
+int32_t h = e;
+int32_t i = 3;
+printf("%d\n", ((2 * 43) - ((d - c) / h)) * -1);;
+printf("%d\n", d + h);;
+printf("%d\n", h);;
+printf("%d\n", d);;
+printf("%d\n", i - b);;
+printf("%d\n", h);;
+printf("%d\n", d);;
+printf("%d\n", c);;
+printf("%d\n", b);;
+printf("%d\n", h - 5);;
+int32_t j = ((59 - a) - (24 / 47)) / d;
+printf("%d\n", f);;
+printf("%d\n", -43);;
+printf("%d\n", (4 - d) + h);;
+printf("%d\n", f);;
+printf("%d\n", -16);;
+printf("%d\n", ((36 - -58) - -14) / 10);;
+printf("%d\n", f);;
+printf("%d\n", -17);;
+return 0;}

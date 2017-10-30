@@ -1,0 +1,41 @@
+#include <stdint.h>
+int main() {
+int32_t a = -1926478822 * 1489188903;
+printf("%d\n", -524908681);;
+printf("%d\n", ((484014580 - (a * (a / (a / a)))) / a) * a);;
+printf("%d\n", 1034262746);;
+printf("%d\n", a);;
+printf("%d\n", -1431445301);;
+printf("%d\n", a);;
+printf("%d\n", a);;
+printf("%d\n", a);;
+printf("%d\n", a);;
+int32_t b = 233341653;
+int32_t c = 1079496372;
+int32_t d = c;
+printf("%d\n", (((1835675328 - d) - (b / (d / -632435605))) / -1662325189) / a);;
+int32_t e = -763797682 * d;
+printf("%d\n", -1172575586 + (c + c));;
+printf("%d\n", c);;
+int32_t f = d;
+printf("%d\n", 388358322);;
+printf("%d\n", -1620136117);;
+printf("%d\n", c);;
+int32_t g = c - 1193086301;
+printf("%d\n", a);;
+printf("%d\n", g);;
+printf("%d\n", -692720957);;
+printf("%d\n", e);;
+printf("%d\n", a);;
+printf("%d\n", 1318716382);;
+printf("%d\n", 841146196 * f);;
+int32_t h = d;
+printf("%d\n", -871933311);;
+printf("%d\n", 270366387);;
+printf("%d\n", 1047404860 * (f - -1713463425));;
+int32_t i = -1742883663 * c;
+printf("%d\n", -712507795 / (-570881903 + -1143452516));;
+int32_t j = -1729327310;
+printf("%d\n", d);;
+int32_t k = i;
+return 0;}
