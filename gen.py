@@ -5,6 +5,7 @@ import subprocess
 from os import remove
 from sys import argv, setrecursionlimit
 from math import ceil
+from time import sleep
 
 
 C_COMPILER = 'cc'
@@ -80,6 +81,7 @@ class Prog:
         self.stmts = stmts
 
     def write_c(self, f):
+        f.write(b'#include <stdio.h>\n')
         f.write(b'#include <stdint.h>\n')
         f.write(b'int main() {\n')
         for s in self.stmts:
@@ -94,8 +96,8 @@ class Prog:
             f.write(b';\n')
 
 def genEInt():
-    # return EInt(ceil(normalvariate(5, 40)))
-    return EInt(randint(-2**31, 2**31-1))
+    # return EInt(abs(ceil(normalvariate(5, 40))))
+    return EInt(randint(0, 2**31-1))
 
 
 def genEVar(env):
@@ -141,7 +143,8 @@ def genStmt(env):
 
 
 def genProg(n):
-    l = randint(1, n)
+    # l = randint(1, n)
+    l = ceil(normalvariate(7.0/8 * n, 1.0/7 * n))
     p = []
     e = emptyEnv()
     for _ in range(l):
@@ -169,16 +172,15 @@ if __name__ == '__main__':
     maxn = int(argv[2])
     maxl = int(argv[3])
     path = argv[1]
+    prefix = 'ex'
 
     setrecursionlimit(50000)
-    # print('run: %s %s %d %d' % (argv[0], path, maxn, maxl))
-    # exit(0)
     i = 0;
 
     while i < maxn:
-        src_inst = '%s/ex%03d.ins' % (path, i)
-        src_c = '%s/ex%03d.c' % (path, i)
-        out = '%s/ex%03d.output' % (path, i)
+        src_inst = ('%s/' + prefix + '%03d.ins') % (path, i)
+        src_c = ('%s/' + prefix + '%03d.c') % (path, i)
+        out = ('%s/' + prefix + '%03d.output') % (path, i)
         try:
             prog = genProg(maxl)
         except RecursionError:
@@ -188,10 +190,12 @@ if __name__ == '__main__':
             prog.write_c(f)
         with open(src_inst, 'wb+') as f:
             prog.write_instant(f)
-
+        
+        # no overflows
+        # p = subprocess.run([C_COMPILER, '-Werror=div-by-zero', '-Werror=overflow', src_c], stderr=subprocess.DEVNULL)
         p = subprocess.run([C_COMPILER, '-Werror=div-by-zero', src_c], stderr=subprocess.DEVNULL)
         if p.returncode is not 0:
-            # print('C Compiler failed on: %s' % src_c)
+            sleep(0.01)
             remove(src_c)
             remove(src_inst)
             continue
@@ -199,8 +203,8 @@ if __name__ == '__main__':
         f = open(out, 'wb+')
         p = subprocess.run(['./a.out'], stdout=f)
         if p.returncode is not 0:
-            # print('Execution error(%d) on: %s' % (p.returncode, src_inst))
             f.close()
+            sleep(0.01)
             remove(src_c)
             remove(src_inst)
             remove(out)
